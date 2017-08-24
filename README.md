@@ -1,9 +1,10 @@
 # opencart2.0.1.1-izicotaksittab-
-opencart iyzico taksit tabı uygulaması
-www.umitkatmer.com.tr
+
+<br>opencart 2.0.1.1 iyzico taksit tabı uygulaması
+<br>www.umitkatmer.com.tr
 
 
-Uygulama eklenti şeklinde yükleyebilirsiniz , 
-iyzico nun  kendi opencart sürümünüz için olan kütüphanesini indirin ve yükleyin ayarlarınızı giriniz,
-Bu eklenti onun üzerinden hicbir ayar yapmadan calışıcaktır ,
-Bu eklenti journal themes için uyarlanmıştır , kendi temanıza uyarlamanız gerekmektedir.
+<br>Uygulama eklenti şeklinde yükleyebilirsiniz , 
+<br>iyzico nun  kendi opencart sürümünüz için olan kütüphanesini indirin ve yükleyin ayarlarınızı giriniz,
+<br>Bu eklenti onun üzerinden hicbir ayar yapmadan çalışıcaktır ,
+<br>Bu eklenti journal themes için uyarlanmıştır , kendi temanıza uyarlamanız gerekmektedir.
