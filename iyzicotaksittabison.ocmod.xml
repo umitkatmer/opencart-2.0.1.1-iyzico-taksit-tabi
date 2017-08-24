@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<name>İyizco Taksit Tabı</name>
+	<code>Iyzicotaksittabi</code>
+	<version>1.0</version>
+	<author>Ümit Katmer</author>
+	<link></link>
+	<date>2016.10.1</date>
+	
+
+	
+	<file path="catalog/view/theme/*/template/product/product.tpl">
+	
+		<operation>
+            <search><![CDATA[<ul id="tabs" class="nav nav-tabs htabs">]]></search>
+            <add position="after"><![CDATA[
+			<li><a href="#taksit" data-toggle="tab" > Taksit Seçenekleri </a></li>
+			]]></add>
+        </operation>
+		
+		
+		<operation>
+            <search><![CDATA[
+		            <div class="tab-pane tab-content <?php if ($is_active) { echo 'active'; $is_active = false; } ;?>" id="tab-description"><?php echo $description; ?></div>
+			]]></search>
+            <add position="after"><![CDATA[
+				<div class="tab-pane tab-content " id="taksit"> 
+<?php
+
+
+echo'
+<link rel="stylesheet" href="https://static.iyzipay.com/checkoutform/css/main.min.css?v=1475347154274">
+<div id="iyzipay-checkout-form" class="responsive">
+<div class="iyzi-installment-holder" style="display: block; top: 0px;">
+<div class="iyzi-installment-table-background" style="width: 100%;">
+
+
+<table style="width: 100%;">
+<tbody>
+';
+
+
+require_once DIR_SYSTEM . "library" . DIRECTORY_SEPARATOR . "iyzico" . DIRECTORY_SEPARATOR . "IyzipayBootstrap.php";
+
+
+$merchant_api_id     = $this->config->get('iyzico_checkout_form_api_id_live');
+$merchant_secret_key = $this->config->get('iyzico_checkout_form_secret_key_live'); 
+
+
+IyzipayBootstrap::init();
+
+$base_url = "https://api.iyzipay.com";
+$order_prefix = "opencart2_";
+$valid_currency = array("TRY", "GBP", "USD", "EUR", "IRR");
+
+$optionss = new \Iyzipay\Options();
+$optionss->setApiKey($merchant_api_id);
+$optionss->setSecretKey($merchant_secret_key);
+$optionss->setBaseUrl($base_url);
+
+
+if ( empty($special) ){$fiyat = $price;}else{$fiyat = $special;}
+
+$ilksayi = explode(",", $fiyat);
+$yenifiyat =  $ilksayi[0];
+$yenifiyat = str_replace('.', '', $yenifiyat);
+
+$request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
+$request->setLocale(\Iyzipay\Model\Locale::TR);
+$request->setConversationId("123456789");
+//$request->setBinNumber("554960");//çok banka için kaldırmak gerekli
+$request->setPrice("$yenifiyat");
+
+$installmentInfo     = \Iyzipay\Model\InstallmentInfo::retrieve($request, $optionss);
+$installmentInfor    = $installmentInfo -> getInstallmentDetails();
+
+$son1  = count($installmentInfor)-1;
+
+for ($i = 0; $i <= $son1; $i++) {
+	
+$taksitlifiyatlar    = $installmentInfor[$i]->getInstallmentPrices() ;
+$bankadi             = $installmentInfor[$i]->getBankName() ;
+$cardFamily          = $installmentInfor[$i]->getcardFamilyName() ;
+
+echo '
+<tr class="bank-header Maximum">      
+<td class="iyzi-installment-table-with-bg" style="height:50px;"></td>';
+
+echo '
+<td class="iyzi-installment-table-with-bg" style="height:50px;"><img src="https://static.iyzipay.com/checkoutform/svg/'.$cardFamily.'.svg" class="cardFamilyImage '.$cardFamily.'" style="height: 15px; width: 33%; max-width: 90px; margin-right: 10px;"></td>
+';
+
+echo '</tr>';
+
+
+
+echo '
+<tr class="bank-header '.$cardFamily.'">
+<td class="iyzi-installment-table-with-bg" style="height:50px;">Peşin</td>';
+
+$getInstallmentPricedd    = $taksitlifiyatlar[0]->getInstallmentPrice() ;
+
+$getInstallmentPricedd    =  $this->currency->format($getInstallmentPricedd,'','',true);
+echo '<td class="'.$cardFamily.' equalToCashPrice"><span class="iyzi-installment-amount">'.$getInstallmentPricedd.'</span></td>';
+
+
+	echo '</tr>';
+
+
+$son2  = count($taksitlifiyatlar)-1;
+
+for ($im = 0; $im <= $son2; $im++) {
+
+$getInstallmentPrice    = $taksitlifiyatlar[$im]->getInstallmentPrice() ;
+$getTotalPrice          = $taksitlifiyatlar[$im]->getTotalPrice() ;
+$getInstallmentNumber       = $taksitlifiyatlar[$im]->getInstallmentNumber() ;
+
+
+$getInstallmentPrice    =  $this->currency->format($getInstallmentPrice,'','',true);
+
+$getTotalPrice          =  $this->currency->format($getTotalPrice ,'','',true);
+
+
+echo '
+<tr class="bank-header '.$cardFamily.'">
+<td class="iyzi-installment-table-with-bg" style="height:50px;">'.$getInstallmentNumber.'  Taksit</td>';
+
+
+echo '
+<td class="'.$cardFamily.'">
+<span class="iyzi-installment-amount">'.$getInstallmentPrice.' x '.$getInstallmentNumber.'</span>
+<span class="iyzi-total-amount">TOPLAM '.$getTotalPrice.'</span>
+</td>';
+
+	
+	echo '</tr>';
+
+	}
+	
+
+
+}
+
+echo '
+
+</tbody>
+</table></div>
+</div>
+</div>';
+
+
+?>
+
+
+
+			</div>
+			]]></add>
+        </operation>
+		
+		
+
+	</file>
+
+		
+</modification>
