@@ -1,7 +1,7 @@
 # opencart2.0.1.1-izicotaksittab-
 
 <br>opencart 2.0.1.1 iyzico taksit tabı uygulaması
-<br>www.umitkatmer.com.tr
+
 
 
 <br>Uygulama eklenti şeklinde yükleyebilirsiniz , 
