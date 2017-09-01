@@ -1,4 +1,4 @@
-# opencart2.0.1.1-izicotaksittab-
+# opencart-2.0.1.1-iyzico-taksit-tabi
 
 <br>opencart 2.0.1.1 iyzico taksit tabı uygulaması
 
