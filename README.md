@@ -10,5 +10,5 @@
 <br>Bu eklenti onun üzerinden hicbir ayar yapmadan çalışıcaktır ,
 <br>Bu eklenti journal themes için uyarlanmıştır , kendi temanıza uyarlamanız gerekmektedir.
 
-https://www.facebook.com/taktikteknoloji/
-http://umitkatmer.com.tr/
+<br>https://www.facebook.com/taktikteknoloji/
+<br>http://umitkatmer.com.tr/
