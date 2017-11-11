@@ -9,3 +9,5 @@
 <br>https://dev.iyzipay.com/tr/acik-kaynak/opencart
 <br>Bu eklenti onun üzerinden hicbir ayar yapmadan çalışıcaktır ,
 <br>Bu eklenti journal themes için uyarlanmıştır , kendi temanıza uyarlamanız gerekmektedir.
+
+https://www.facebook.com/taktikteknoloji/
