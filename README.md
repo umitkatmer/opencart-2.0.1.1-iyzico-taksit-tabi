@@ -11,3 +11,4 @@
 <br>Bu eklenti journal themes için uyarlanmıştır , kendi temanıza uyarlamanız gerekmektedir.
 
 https://www.facebook.com/taktikteknoloji/
+http://umitkatmer.com.tr/
