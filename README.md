@@ -13,9 +13,9 @@
 <br>https://www.facebook.com/taktikteknoloji/
 <br>http://umitkatmer.com.tr/
 
-<br>
-<br>
-<br>
-Bu Kodlar işinize yaradı ise ;<br>
-http://www.mehmetcik.org.tr/bagis/sms/ <br>
-Arzu edenler, TÜRK TELEKOM, TURKCELL veya VODAFONE GSM operatörlerine ait faturalı telefonlardan 2582'ye MEHMETÇİK yazıp kısa mesaj (SMS) göndererek Mehmetçik Vakfına 10,00 TL tutarında bağışta bulunabilirsiniz.
+
+<h3 id="iletisim">İletişim</h3>
+ÜMİT KATMER
+<br>info@umitkatmer.com.tr
+<br>https://umitkatmer.com.tr
+<br>https://www.facebook.com/katmersoft
